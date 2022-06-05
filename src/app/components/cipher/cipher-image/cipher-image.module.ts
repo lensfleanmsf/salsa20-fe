@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { CipherImageRoutingModule } from './cipher-image-routing.module';
 import { CipherImageComponent } from './cipher-image.component';
 import { MatIconModule } from '@angular/material/icon';
