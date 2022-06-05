@@ -1,0 +1,32 @@
+.cipher-text-container {
+  form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 80vh;
+    padding: 6% 0 3% 0;
+    text-align: center;
+
+    .input-container, .result-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      mat-form-field {
+        width: 60%;
+      }
+    }
+
+    .submit-container {
+      width: 100%;
+      padding-top: 16px;
+
+      button {
+        font-size: 2rem;
+        height: 3rem;
+      }
+    }
+  }
+}

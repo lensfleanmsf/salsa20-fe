@@ -1,12 +1,30 @@
-<h1>CIPHER</h1>
-
 <section>
-  
-    <form [formGroup]="fgCipher">
-      <input placeholder="Image" type="file" formControlName="image" />
-    </form>
-    <button mat-stroked-button color="primary">Process</button>
-    <mat-card>
-        HOLA
-  </mat-card>
+  <div class="cipher-container">
+    <div class="introduction-container">
+      <h1 class="mat-h1">Salsa20</h1>
+      <p class="mat-body">STREAM CIPHER WITH SYMMETRIC SECRET KEY</p>
+      <p class="mat-body">Key length = 32 bytes</p>
+      <p class="mat-body">
+        Salsa20 is a modern and efficient stream symmetric cipher. It was
+        designed in 2005 by Daniel Bernstein, research professor of Computer
+        Science at the University of Illinois at Chicago.
+      </p>
+      <h2 class="mat-h2">Usage</h2>
+      <p class="mat-body">
+        Salsa20 is a cipher that was submitted to eSTREAM project, running from
+        2004 to 2008, which was supposed to promote development of stream
+        ciphers. It is considered to be a well-designed and efficient algorithm.
+        There aren't any known and effective attacks on the family of Salsa20
+        ciphers.
+      </p>
+    </div>
+    <div class="navigation-container">
+      <a mat-raised-button color="accent" [routerLink]="'/cipher/image'"
+        >Cipher Image</a
+      >
+      <a mat-raised-button color="accent" [routerLink]="'/cipher/text'"
+        >Cipher Text</a
+      >
+    </div>
+  </div>
 </section>

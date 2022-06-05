@@ -1,0 +1,33 @@
+<section>
+  <div class="cipher-text-container">
+    <form #form="ngForm" [formGroup]="fgCipher" (ngSubmit)="process()">
+      <div class="input-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Cipher a text</mat-label>
+          <textarea
+            matInput
+            placeholder="Text to cipher"
+            formControlName="text"
+          ></textarea>
+          <mat-error>Text is required.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="submit-container">
+        <button
+          type="submit"
+          mat-raised-button
+          color="accent"
+          [disabled]="fgCipher.invalid"
+        >
+          Process
+        </button>
+      </div>
+      <div class="result-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Ciphertext</mat-label>
+          <textarea matInput placeholder="Cipher a text" disabled>{{ciphertext}}</textarea>
+        </mat-form-field>
+      </div>
+    </form>
+  </div>
+</section>

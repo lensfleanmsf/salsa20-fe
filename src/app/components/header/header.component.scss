@@ -1,0 +1,24 @@
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  max-height: 64px;
+
+  .mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navigation-container {
+    a {
+      margin-right: 5%;
+    }
+  }
+
+  .title-container {
+    h1 {
+      margin: 0;
+    }
+  }
+}

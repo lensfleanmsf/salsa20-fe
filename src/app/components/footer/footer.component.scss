@@ -1,0 +1,19 @@
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 1000;
+  max-height: 32px;
+
+  .mat-toolbar {
+    height: 32px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .signature-container {
+    h1 {
+      margin: 0;
+    }
+  }
+}

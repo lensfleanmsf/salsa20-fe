@@ -8,6 +8,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./components/cipher/cipher.module').then((m) => m.CipherModule),
   },
+  {
+    path: 'cipher',
+    title: 'Cipher',
+    loadChildren: () =>
+      import('./components/cipher/cipher.module').then((m) => m.CipherModule),
+  },
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
