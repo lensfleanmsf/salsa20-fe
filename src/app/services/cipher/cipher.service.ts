@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CipherService {
-  private URL_API: string = 'http://localhost:/5000/';
-  private ENDPOINT_CIPHER_IMAGE = 'api/v1/cipher-image';
-  private ENDPOINT_CIPHER_TEXT = 'api/v1/cipher-text';
+  private URL_API: string = 'http://127.0.0.1:5000';
+  private ENDPOINT_CIPHER_IMAGE = '/encrypt-image/';
+  private ENDPOINT_CIPHER_TEXT = '/encrypt-text/';
 
   constructor(private http: HttpClient) {}
 
