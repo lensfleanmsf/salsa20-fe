@@ -1,6 +1,5 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { saveAs } from 'file-saver';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,24 +13,12 @@ export class CipherService {
   constructor(private http: HttpClient) {}
 
   cipherImage(image: File) {
-    const contentType = 'image/png';
     const formData = new FormData();
 
     formData.append('file', image);
 
     return this.http
-      .post(`${this.URL_API}${this.ENDPOINT_CIPHER_IMAGE}`, formData, { responseType: 'blob' })
-      .subscribe((result: any) => {
-        const blob = new Blob([result], {
-          type: contentType,
-        });
-
-        const file = new File([blob], 'FileName.png', {
-          type: contentType,
-        });
-
-        saveAs(file);
-      });
+      .post(`${this.URL_API}${this.ENDPOINT_CIPHER_IMAGE}`, formData, { responseType: 'blob' });
   }
 
   cipherText(text: string): Observable<any> {

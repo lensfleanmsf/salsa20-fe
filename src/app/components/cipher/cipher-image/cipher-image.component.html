@@ -1,6 +1,10 @@
 <section>
   <div class="cipher-image-container">
-    <form [formGroup]="fgCipher" (ngSubmit)="process()" enctype="multipart/form-data">
+    <form
+      [formGroup]="fgCipher"
+      (ngSubmit)="process()"
+      enctype="multipart/form-data"
+    >
       <div class="input-container">
         <input
           #image
@@ -42,6 +46,17 @@
               >delete</mat-icon
             >
           </button>
+          <button
+            *ngIf="blob"
+            mat-mini-fab
+            color="accent"
+            aria-label="Delete button"
+            (click)="download()"
+          >
+            <mat-icon aria-hidden="false" aria-label="File download icon"
+              >file_download</mat-icon
+            >
+          </button>
         </div>
       </div>
       <div class="submit-container">
@@ -49,7 +64,7 @@
           type="submit"
           mat-raised-button
           color="accent"
-          [disabled]="fgCipher.invalid"
+          [disabled]="!file"
         >
           Encriptar
         </button>
