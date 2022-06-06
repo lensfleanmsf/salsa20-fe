@@ -1,6 +1,6 @@
 <section>
   <div class="cipher-image-container">
-    <form [formGroup]="fgCipher" (ngSubmit)="process()">
+    <form [formGroup]="fgCipher" (ngSubmit)="process()" enctype="multipart/form-data">
       <div class="input-container">
         <input
           #image
@@ -16,7 +16,7 @@
           color="accent"
           (click)="image.click()"
         >
-          Upload image
+          Cargar imagen
         </button>
       </div>
       <div class="preview-container">
@@ -51,7 +51,7 @@
           color="accent"
           [disabled]="fgCipher.invalid"
         >
-          Process
+          Encriptar
         </button>
       </div>
     </form>

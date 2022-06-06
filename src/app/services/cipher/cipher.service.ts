@@ -14,10 +14,10 @@ export class CipherService {
   constructor(private http: HttpClient) {}
 
   cipherImage(image: any) {
-    const contentType = 'image/*';
+    const contentType = 'image/png';
     const formData = new FormData();
-
-    formData.append('image', image);
+		let file: File = image;
+    formData.append('file', file);
 
     return this.http
       .post(`${this.URL_API}${this.ENDPOINT_CIPHER_IMAGE}`, formData)
@@ -31,6 +31,7 @@ export class CipherService {
         });
 
         saveAs(file);
+				console.log(result)
       });
   }
 

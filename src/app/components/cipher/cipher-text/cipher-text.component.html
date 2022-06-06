@@ -3,13 +3,13 @@
     <form #form="ngForm" [formGroup]="fgCipher" (ngSubmit)="process()">
       <div class="input-container">
         <mat-form-field appearance="fill">
-          <mat-label>Cipher a text</mat-label>
+          <mat-label>Texto a cifrar</mat-label>
           <textarea
             matInput
-            placeholder="Text to cipher"
+            placeholder="Texto a cifrar"
             formControlName="text"
           ></textarea>
-          <mat-error>Text is required.</mat-error>
+          <mat-error>Se requiere un texto.</mat-error>
         </mat-form-field>
       </div>
       <div class="submit-container">
@@ -19,13 +19,13 @@
           color="accent"
           [disabled]="fgCipher.invalid"
         >
-          Process
+          Encriptar
         </button>
       </div>
       <div class="result-container">
         <mat-form-field appearance="fill">
-          <mat-label>Ciphertext</mat-label>
-          <textarea matInput placeholder="Cipher a text" disabled>{{ciphertext}}</textarea>
+          <mat-label>Texto cifrado</mat-label>
+          <textarea matInput placeholder="Cifrar texto" disabled>{{ciphertext}}</textarea>
         </mat-form-field>
       </div>
     </form>

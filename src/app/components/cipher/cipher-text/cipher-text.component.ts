@@ -18,10 +18,10 @@ export class CipherTextComponent {
 
   process() {
     if (this.fgCipher.valid) {
-      this.cipherService
+      this.cipherService	
         .cipherText(this.fgCipher.value.text!)
         .subscribe((ciphertext) => {
-          this.ciphertext = ciphertext;
+          this.ciphertext = ciphertext.message;
         });
       }
   }
