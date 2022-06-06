@@ -17,6 +17,8 @@ export class CipherImageComponent {
 
   url: any = this.DEFAULT_IMAGE_PREVIEW;
 
+  file: File | undefined;
+
   constructor(private fb: FormBuilder, private cipherService: CipherService) {}
 
   onFileChange(event: any) {
@@ -26,6 +28,8 @@ export class CipherImageComponent {
       reader.onload = (event: any) => {
         this.url = event.target.result;
       };
+
+      this.file = event.target.files[0];
 
       reader.readAsDataURL(event.target.files[0]);
     }
@@ -37,6 +41,6 @@ export class CipherImageComponent {
   }
 
   process() {
-    if (this.fgCipher.valid) this.cipherService.cipherImage(this.url);
+    if (this.fgCipher.valid) this.cipherService.cipherImage(this.file!);
   }
 }
