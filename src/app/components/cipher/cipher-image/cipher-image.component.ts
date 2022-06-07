@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CipherService } from 'src/app/services/cipher/cipher.service';
 import { saveAs } from 'file-saver';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-cipher-image',
@@ -36,7 +37,6 @@ export class CipherImageComponent {
         this.blob = undefined;
       };
 
-      console.log('hola')
       this.file = event.target.files[0];
 
       reader.readAsDataURL(event.target.files[0]);
@@ -44,6 +44,7 @@ export class CipherImageComponent {
   }
 
   delete() {
+    this.file = undefined;
     this.blob = undefined;
     this.url = this.DEFAULT_IMAGE_PREVIEW;
     this.fgCipher.get('image')?.setValue(null);
@@ -55,7 +56,7 @@ export class CipherImageComponent {
       type: contentType,
     });
 
-    const file = new File([blob], 'FileName.png', {
+    const file = new File([blob], uuidv4() + '.png', {
       type: contentType,
     });
 
@@ -63,9 +64,9 @@ export class CipherImageComponent {
   }
 
   process() {
-    if (this.file)
+    if (this.file && this.file.type == "image/png")
       this.cipherService.cipherImage(this.file!).subscribe((result: any) => {
-        this.file = new File([result], "imagennn.png");;
+        this.file = new File([result], uuidv4() + '.png', {type: 'image/png'});
         this.blob = result;
         let objectURL = URL.createObjectURL(result);
         this.url = this.sanitizer.bypassSecurityTrustUrl(objectURL);

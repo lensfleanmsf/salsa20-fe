@@ -1,27 +1,26 @@
 <section>
   <div class="cipher-image-container">
-    <form
-      [formGroup]="fgCipher"
-      (ngSubmit)="process()"
-      enctype="multipart/form-data"
-    >
+    <form [formGroup]="fgCipher" (ngSubmit)="process()">
       <div class="input-container">
         <input
           #image
           type="file"
+          accept=".png"
           (change)="onFileChange($event)"
           formControlName="image"
         />
-
-        <button
-          type="button"
-          for="image"
-          mat-raised-button
-          color="accent"
-          (click)="image.click()"
-        >
-          Cargar imagen
-        </button>
+        <div class="button-container">
+          <button
+            type="button"
+            for="image"
+            mat-raised-button
+            color="accent"
+            (click)="image.click()"
+          >
+            Cargar imagen
+          </button>
+          <span class="validation mat-caption">*Solo se admite formato PNG</span>
+        </div>
       </div>
       <div class="preview-container">
         <div class="image-container">
@@ -29,6 +28,7 @@
         </div>
         <div *ngIf="url != DEFAULT_IMAGE_PREVIEW" class="actions-container">
           <button
+            type="button"
             mat-mini-fab
             color="accent"
             aria-label="Edit button"
@@ -37,6 +37,7 @@
             <mat-icon aria-hidden="false" aria-label="Edit icon">edit</mat-icon>
           </button>
           <button
+            type="button"
             mat-mini-fab
             color="accent"
             aria-label="Delete button"
@@ -47,10 +48,11 @@
             >
           </button>
           <button
+            type="button"
             *ngIf="blob"
             mat-mini-fab
             color="accent"
-            aria-label="Delete button"
+            aria-label="Download button"
             (click)="download()"
           >
             <mat-icon aria-hidden="false" aria-label="File download icon"

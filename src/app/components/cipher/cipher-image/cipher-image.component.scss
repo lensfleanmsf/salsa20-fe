@@ -10,10 +10,19 @@
 
     .input-container {
       width: 100%;
-
-      button {
-        font-size: 2rem;
-        height: 3rem;
+      .button-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        button {
+          font-size: 2rem;
+          height: 3rem;
+        }
+        .validation {
+          padding-top: 6px;
+          width: 100%;
+          color: red;
+        }
       }
     }
 
@@ -26,6 +35,8 @@
         height: 80%;
         width: 100%;
         padding-top: 1%;
+        display: flex;
+        justify-content: center;
         img {
           max-height: 100%;
         }
@@ -38,7 +49,7 @@
         justify-content: center;
 
         button {
-            margin: 0 4px 0 4px;
+          margin: 0 4px 0 4px;
         }
       }
     }
