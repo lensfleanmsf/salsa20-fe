@@ -18,7 +18,11 @@ export class CipherService {
     formData.append('file', image);
 
     return this.http
-      .post(`${this.URL_API}${this.ENDPOINT_CIPHER_IMAGE}`, formData, { responseType: 'blob' });
+      .post(`${this.URL_API}${this.ENDPOINT_CIPHER_IMAGE}`, formData, {
+        observe: 'events',
+        reportProgress: true,
+        responseType: 'blob',
+      })
   }
 
   cipherText(text: string): Observable<any> {

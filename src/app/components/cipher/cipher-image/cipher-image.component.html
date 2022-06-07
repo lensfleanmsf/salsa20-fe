@@ -19,7 +19,9 @@
           >
             Cargar imagen
           </button>
-          <span class="validation mat-caption">*Solo se admite formato PNG</span>
+          <span class="validation mat-caption"
+            >*Solo se admite formato PNG</span
+          >
         </div>
       </div>
       <div class="preview-container">
@@ -34,7 +36,9 @@
             aria-label="Botón editar"
             (click)="image.click()"
           >
-            <mat-icon aria-hidden="false" aria-label="Ícono editar">edit</mat-icon>
+            <mat-icon aria-hidden="false" aria-label="Ícono editar"
+              >edit</mat-icon
+            >
           </button>
           <button
             type="button"
@@ -70,6 +74,13 @@
         >
           Encriptar
         </button>
+        <div class="progress-bar-container">
+          <mat-progress-bar
+            *ngIf="loadingPercentage"
+            mode="determinate"
+            value="{{ loadingPercentage }}"
+          ></mat-progress-bar>
+        </div>
       </div>
     </form>
   </div>

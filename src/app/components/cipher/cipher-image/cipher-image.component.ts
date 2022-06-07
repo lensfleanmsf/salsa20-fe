@@ -4,6 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { CipherService } from 'src/app/services/cipher/cipher.service';
 import { saveAs } from 'file-saver';
 import { v4 as uuidv4 } from 'uuid';
+import { HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-cipher-image',
@@ -21,6 +22,8 @@ export class CipherImageComponent {
   url: any = this.DEFAULT_IMAGE_PREVIEW;
   file: File | undefined;
   blob: Blob | undefined;
+
+  loadingPercentage = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -64,12 +67,20 @@ export class CipherImageComponent {
   }
 
   process() {
-    if (this.file && this.file.type == "image/png")
-      this.cipherService.cipherImage(this.file!).subscribe((result: any) => {
-        this.file = new File([result], uuidv4() + '.png', {type: 'image/png'});
-        this.blob = result;
-        let objectURL = URL.createObjectURL(result);
-        this.url = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+    if (this.file && this.file.type == 'image/png')
+      this.cipherService.cipherImage(this.file!).subscribe((event) => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.loadingPercentage = (event.loaded / event.total!) * 100;
+        }
+        if (event.type === HttpEventType.Response) {
+          this.file = new File([event.body!], uuidv4() + '.png', {
+            type: 'image/png',
+          });
+          this.blob = event.body!;
+          let objectURL = URL.createObjectURL(event.body!);
+          this.url = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+          this.loadingPercentage = 0;
+        }
       });
   }
 }
