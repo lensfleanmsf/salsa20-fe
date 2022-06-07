@@ -5,14 +5,14 @@ import { CipherComponent } from './cipher.component';
 const routes: Routes = [
   { path: '', component: CipherComponent },
   {
-    path: 'text',
+    path: 'cifrar/texto',
     loadChildren: () =>
       import('./cipher-text/cipher-text.module').then(
         (m) => m.CipherTextModule
       ),
   },
   {
-    path: 'image',
+    path: 'cifrar/imagen',
     loadChildren: () =>
       import('./cipher-image/cipher-image.module').then(
         (m) => m.CipherImageModule

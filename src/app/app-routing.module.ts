@@ -4,13 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    title: 'Cipher',
-    loadChildren: () =>
-      import('./components/cipher/cipher.module').then((m) => m.CipherModule),
-  },
-  {
-    path: 'cipher',
-    title: 'Cipher',
+    title: 'Salsa20',
     loadChildren: () =>
       import('./components/cipher/cipher.module').then((m) => m.CipherModule),
   },
