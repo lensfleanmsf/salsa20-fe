@@ -5,6 +5,7 @@ import { CipherTextComponent } from './cipher-text.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [CipherTextComponent],
@@ -14,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
+    ClipboardModule
   ],
 })
 export class CipherTextModule {}

@@ -8,7 +8,7 @@
     padding: 6% 0 3% 0;
     text-align: center;
 
-    .input-container, .result-container {
+    .input-container {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
@@ -16,6 +16,25 @@
 
       mat-form-field {
         width: 60%;
+      }
+    }
+
+    .result-container {
+      width: 100%;
+
+      mat-form-field {
+        width: 60%;
+      }
+
+      .button-container {
+        min-height: 3rem;
+        display: block;
+        margin: auto;
+
+        button {
+          font-size: 2rem;
+          height: 3rem;
+        }
       }
     }
 
